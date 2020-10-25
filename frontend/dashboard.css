@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Default */
+body {
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Box Shadow Heavy */
+.add-boxshadow-heavy {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.514);
+    border: none;
+    outline: none;
+}
+
+/* Sidebar */
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+    /* position: fixed; */
+    z-index: 10;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+    padding-top: 70px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    #sidebar-wrapper#wrapper.toggled {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+/* Navbar Custom */
+.navbar-custom {
+    background-color: #005bf0;
+}
+
+.bg-custom {
+    background-color: #005bf0;
+}
+
+#active {
+    background-color: whitesmoke;
+    border-radius: 20px;
+    width: 170px;
+    text-decoration: none;
+    text-align: center;
+    border: 4px solid #00368d;
+    color: #00368d;
+}
+
+#list-item {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    border-radius: 20px;
+    width: 170px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#active:hover {
+    color: #005bf0;
+}
+
+#list-item:hover {
+    color: #005bf0;
+}
+
+.nav-item a {
+    color: white;
+}
+
+.nav-item a:hover {
+    color: rgba(255, 255, 255, 0.753);
+}
+
+.btn-add {
+    background: #005bf0;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 20px;
+    box-shadow: none;
+}
+
+.btn-add:hover {
+    background: #00368d;
+    color: white;
+    box-shadow: none;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: white;
+}
+
+.custom-toggler2.navbar-toggler {
+    border-color: white;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* Button Onlala */
+.btn-onlala {
+    background: #005bf0;
+    border-radius: 5px;
+    color: white;
+    width: 200px;
+    min-width: 200px;
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.btn-onlala:hover,
+.btn-onlala:focus {
+    background: #00368d;
+    color: white;
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.btn-onlala-action {
+    background: #005bf0;
+    border-radius: 30px;
+    color: white;
+    width: 90px;
+    min-width: 90px;
+}
+
+.btn-onlala-action:hover {
+    background: #00368d;
+    border-radius: 30px;
+    color: white;
+    width: 90px;
+    min-width: 90px;
+}
+
+.btn-onlala-small img {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    padding: 5px;
+}
+
+.btn-onlala-small:hover,
+.btn-onlala-small:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Logo */
+.logo {
+    height: 55px;
+}
+
+/* Logo 2 */
+.logo2 {
+    height: 100px;
+}
+
+@media only screen and (min-width: 780px) {
+    .hide-big {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .hide-small {
+        display: none;
+    }
+}
+
+/* Heading */
+.text-colored {
+    color: #0196fa;
+}
+
+/* Grey Box */
+.grey-box {
+    background-color: white;
+    border-radius: 30px;
+    padding: 20px;
+    width: 210px;
+    max-width: 260px;
+    min-width: 190px;
+    border: 1px solid #176581;
+}
+
+.grey-box-profile {
+    background-color: white;
+    border-radius: 30px;
+    padding: 20px;
+    /* width: 210px;
+    max-width: 260px; */
+    min-width: 190px;
+    border: 1px solid #176581;
+}
+
+.grey-img {
+    height: 75px;
+    width: 100px;
+}
+
+.grey-box2 {
+    background-color: #E9E6E6;
+    border-radius: 30px;
+}
+
+.grey-img2 {
+    height: 95px;
+    width: 100px;
+}
+
+.add-grey {
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    border: 1px solid #176581;
+}
+
+/* Profile Pic */
+.prof-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.514);
+    padding: 2px;
+}
+
+/* Danger Onlala Btn */
+.btn-onlala-danger {
+    background-color: #FF380D;
+    color: white;
+    width: 200px;
+    min-width: 200px;
+    border-radius: 30px;
+}
+
+.btn-onlala-danger:hover {
+    background-color: rgb(158, 31, 3);
+    color: white;
+    width: 200px;
+    min-width: 200px;
+    border-radius: 30px;
+}
+
+/* Button Onlala */
+.btn-onlala-big {
+    background: #005bf0;
+    border-radius: 30px;
+    color: white;
+    width: 200px;
+    min-width: 200px;
+}
+
+.btn-onlala-big:hover {
+    background: #00368d;
+    border-radius: 30px;
+    color: white;
+    width: 200px;
+    min-width: 200px;
+}
+
+/* Hide Inputs */
+#manufBannerFile,
+#shopBannerFile {
+    display: none;
+}
+
+/* Text Colored */
+.text-colored a {
+    color: #005bf0;
+}
+
+.text-colored a:hover {
+    color: #00368d;
+}
+
+/* Outline */
+.form-control {
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    outline: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Headings */
+h3 .font-weight-bold {
+    color: #00368d;
+}
+
+/* Hide AT4 */
+#at4-soc,
+#at4-share,
+#at4-share-label {
+    display: none;
+}

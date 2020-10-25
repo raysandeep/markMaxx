@@ -1,0 +1,239 @@
+root{
+    --main-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.2);
+    --main-shadow-hover: inset -6px -6px 10px rgb(255, 255, 255), inset 6px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+button:focus{
+    outline: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+body{
+    position: relative;
+}
+
+.top{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: left;
+    align-items: center;
+    padding-top: 10px;
+}
+/* 
+.top > div > img{
+   
+} */
+
+.main-logo > img{
+    padding-left: 30px;
+    padding-top: 10px;
+    max-width: 150px;
+}
+
+.dsc-logo{
+    position: relative;
+    justify-self: right;
+    cursor: pointer;
+}
+
+.dsc-logo > img{
+    padding-left: 0;
+    padding-right: 20px;
+     max-width: 10vw;
+    max-height: 200px;
+    padding-left: 20px;
+}
+
+.container{
+    position: relative;
+    /* display: grid;
+    grid-template-rows: 40% 60%;
+    background: grey;
+    height: 100%; */
+    padding-top: 150px;
+    color: rgb(136, 136, 136);
+
+}
+
+.secondary-login{
+    position: relative;
+    text-align: center;
+    width: 20%;
+    margin: 40px auto;   
+}
+
+.secondary-login > :nth-child(1){
+    color: rgb(136, 135, 135);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.media{
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+
+.primary-login{
+    position: relative;
+    width: 25%;
+    display: grid;
+    grid-template-areas: "ic1 em" "ic2 pa" ". lo" ". or" ". si";
+    grid-template-columns: 16% 84%;
+    row-gap: 25px;
+    margin: auto;
+    transform: translateX(-7.5%);
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.primary-login > input{
+    position: relative;
+    padding: 5px 10px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px lightgray solid;
+}
+
+
+
+.primary-login > button{
+    position: relative;
+    padding: 13px 5px;
+    border: 0;
+    background-color: #2784fb;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.primary-login > :nth-child(1){
+    grid-area: ic1;
+    align-self: center;
+}
+
+.primary-login > :nth-child(2){
+    grid-area: em;
+}
+
+.primary-login > :nth-child(3){
+    grid-area: ic2;
+    align-self: center;
+}
+
+.primary-login > :nth-child(4){
+    grid-area: pa;
+}
+
+.primary-login > :nth-child(5){
+    grid-area: lo;
+}
+
+.primary-login > :nth-child(6){
+    grid-area: or;
+}
+
+.primary-login > :nth-child(7){
+    grid-area: si;
+    background-color: white;
+    color: rgb(136, 135, 135);
+    box-shadow: var(--main-shadow);
+}
+
+.primary-login > img{
+    height: 35px;
+    width: 35px;
+}
+
+.message{
+    color: red;
+    text-align: center;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.container-admin{
+    padding-top: 200px;
+}
+
+@media(max-width: 1000px){
+    .top > div > img{
+        padding-left: 15px;
+        padding-top: 0px;
+        max-width: 17vw;
+    }
+    .secondary-login{
+        width: 50%;
+    }
+    .primary-login{
+        width: 60%;
+        transform: translateX(-5%);
+    }
+}
+
+@media(max-width: 800px){
+    .top > div > img{
+        padding-left: 15px;
+        padding-top: 0px;
+        max-width: 17vw;
+    }
+    .secondary-login{
+        width: 70%;
+    }
+    .primary-login{
+        width: 80%;
+        transform: translateX(-5%);
+    }
+    .message{
+        font-size: 1rem;
+    }
+    .container{
+        padding-top: 80px;
+    }
+    .container-admin{
+        padding-top: 100px;
+    }
+}
+
+
+.invalid{
+    border: 1.5px red solid!important;
+}
+
+.invalid::placeholder{
+    color: red;
+}
+
+.loading-gif{
+    height: 1rem;
+    width: 1rem;
+}
+.success{
+    color: green;
+}
+
+.rnr-hol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

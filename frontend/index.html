@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+        defer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        defer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" defer>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="./dashboard.css">
+    <title>MarkMaxx | Login</title>
+    <link rel="icon" type="image/png" href="../img/KnockoutsFavicon.png">
+
+</head>
+
+<body onload="load()">
+    <div class="top">
+        <div class="main-logo">
+            <img src="../img/dsclogo.png" alt="">
+        </div>
+        <div class="dsc-logo">
+            <img src="https://raw.githubusercontent.com/GDGVIT/competitive-edge-web/master/img/dsclogo.png?token=AKOLBT4TMKNCL7URTB44DVC7SR7TU" alt="" onclick="window.open('https://dscvit.com')">
+        </div>
+    </div>
+    <div class="container">
+        <p class="message"></p>
+        
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        
+    </div>
+    
+
+    <script>
+        let emailuser;
+        const but = document.querySelector("#login");
+        let email = document.querySelector("#email");
+        let pass = document.querySelector("#pass");
+        let mes_div = document.querySelector(".message")
+
+
+        let addLoader = (button) => {
+            button.innerHTML = '<img src="../img/loading.gif" alt="" class = "loading-gif">'
+        }
+        let removeLoader = (button, text) => {
+            button.innerHTML = text;
+            button.removeAttribute("style");
+        }
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+
+        
+
+        let login = (token) => {
+
+            addLoader(but)
+            let stat;
+
+            var raw = {
+                username: email.value,
+                password: pass.value,
+                g_token: token
+            };
+
+            var requestOptions = {
+                method: 'POST',
+                body: JSON.stringify(raw),
+                redirect: 'follow',
+                headers: { "Content-Type": "application/json" }
+            };
+
+            fetch("https://api1.knockouts.dscvit.com/api/auth/login/", requestOptions)
+                .then(response => {
+                    if (response.status == 403) {
+                        mes_div.innerHTML = `No Active Round!`;
+                    }
+                    stat = response.status;
+                    ok = response.ok;
+                    but.addEventListener("click", login);
+                    return response.json()
+                })
+                .then(result => {
+                    if (!ok) {
+                        throw (result);
+                    }
+                    else {
+                        sessionStorage.setItem("name", result["user"]["full_name"])
+                        localStorage.setItem("token", result["user"].token)
+                        checkActiveRound();
+                    }
+
+                })
+                .catch(error => {
+                    removeLoader(but, "Login")
+                    console.log(error);
+                    if (stat == "Error: 403") {
+                        mes_div.innerHTML = `No Active Round!`;
+
+                    }
+                    else {
+                        if (error["message"] == "400") {
+                            mes_div.innerHTML = `No Such User!`;
+                        }
+                        else {
+                            mes_div.innerHTML = `${error["message"]}! Please try again`;
+
+                        }
+
+                    }
+                });
+        }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/min/dropzone.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript"
+        src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/js/dataTables.checkboxes.min.js"></script>
+    <script src="index.js"></script>
+
+
+</body>
+
+</html>
